@@ -1,0 +1,11 @@
+const $=(s,c=document)=>c.querySelector(s);const puzzle=$('#puzzle');let board=[],moves=0,startTime=0,timer=null,running=false;
+function solved(){return board.every((v,i)=>v===i)}
+function neighbors(blank){const r=Math.floor(blank/4),c=blank%4,a=[];if(r>0)a.push(blank-4);if(r<3)a.push(blank+4);if(c>0)a.push(blank-1);if(c<3)a.push(blank+1);return a}
+function render(){puzzle.innerHTML='';board.forEach((v,pos)=>{const b=document.createElement('button');b.className='tile'+(v===15?' empty':'');if(v!==15){const row=Math.floor(v/4),col=v%4;b.style.backgroundPosition=(col*33.333)+'% '+(row*33.333)+'%';b.onclick=()=>move(pos)}puzzle.appendChild(b)})}
+function move(pos){if(!running)return;const blank=board.indexOf(15);if(!neighbors(blank).includes(pos))return;[board[blank],board[pos]]=[board[pos],board[blank]];moves++;$('#moves').textContent=moves;render();if(solved())finish()}
+function shuffleBoard(){board=[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15];let blank=15,prev=-1;for(let i=0;i<220;i++){let opts=neighbors(blank).filter(x=>x!==prev);const next=opts[Math.floor(Math.random()*opts.length)];[board[blank],board[next]]=[board[next],board[blank]];prev=blank;blank=next}if(solved())return shuffleBoard();render()}
+function fmt(sec){const m=Math.floor(sec/60).toString().padStart(2,'0'),s=(sec%60).toString().padStart(2,'0');return m+':'+s}
+function tick(){const sec=Math.floor((Date.now()-startTime)/1000);$('#time').textContent=fmt(sec)}
+function start(){clearInterval(timer);moves=0;$('#moves').textContent='0';$('#time').textContent='00:00';shuffleBoard();running=true;startTime=Date.now();timer=setInterval(tick,500);$('#intro').classList.add('hidden');$('#result').classList.add('hidden')}
+function finish(){running=false;clearInterval(timer);tick();const sec=Math.floor((Date.now()-startTime)/1000),p=JSON.parse(localStorage.getItem('flower-web-missions')||'[false,false,false,false]');p[2]=true;localStorage.setItem('flower-web-missions',JSON.stringify(p));$('#resultText').textContent='你用了 '+moves+' 步、'+fmt(sec)+' 完成 4×4 拼圖。MISSION 03 徽章已解鎖。';setTimeout(()=>$('#result').classList.remove('hidden'),300)}
+$('#start').onclick=start;$('#retry').onclick=start;shuffleBoard();
