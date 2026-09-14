@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#06110f"><title>任務掃描｜花非花？</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="scan.css">
+</head>
+<body>
+<main class="scan-app">
+  <video id="camera" autoplay muted playsinline></video>
+  <canvas id="capture" width="256" height="256" hidden></canvas>
+  <header><a href="index.html">← 返回</a><span>MISSION SCANNER</span><a href="missions.html">任務地圖</a></header>
+  <section class="hud">
+    <p>將任務圖完整放進框內</p>
+    <small id="scanStatus">正在準備相機…</small>
+  </section>
+  <div class="scan-frame" id="scanFrame"><i></i><i></i><i></i><i></i><div class="beam"></div><span>ALIGN TARGET</span></div>
+  <section class="target-strip">
+    <button data-target="0"><img src="assets/影印/c95e5a58-d7c5-4e8d-abcc-503f90609f51 2.jpg" alt=""><span>任務 1</span></button>
+    <button data-target="1"><img src="assets/影印/c95e5a58-d7c5-4e8d-abcc-503f90609f51 3.jpg" alt=""><span>任務 2</span></button>
+    <button data-target="2"><img src="assets/影印/c95e5a58-d7c5-4e8d-abcc-503f90609f51 4.jpg" alt=""><span>任務 3</span></button>
+    <button data-target="3"><img src="assets/影印/c95e5a58-d7c5-4e8d-abcc-503f90609f51.jpg" alt=""><span>任務 4</span></button>
+  </section>
+  <button class="scan-btn" id="scanBtn">開始掃描</button>
+  <div class="result" id="result"><b id="resultTitle"></b><span id="resultConfidence"></span></div>
+</main>
+<script src="scan.js"></script>
+</body></html>
