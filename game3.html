@@ -1,0 +1,10 @@
+<!doctype html><html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#06110f"><title>生態拼圖｜花非花？</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet"><link rel="stylesheet" href="game-common.css"><link rel="stylesheet" href="game3.css"></head><body>
+<header class="topbar"><a href="missions.html">← 任務地圖</a><span>MISSION 03 / ECO PUZZLE</span><a href="game4.html">下一關 →</a></header>
+<main class="game-page">
+<section class="game-hero"><div><p class="eyebrow">MISSION 03 / PUZZLE</p><h1>生態拼圖<br><span>Eco Puzzle</span></h1><p>將 4×4 拼圖還原。只能移動空格相鄰的拼圖塊，完成後會紀錄步數與時間。這一關使用你原本的任務圖作為拼圖內容。</p></div><div class="mascot-card"><img src="assets/影印/c95e5a58-d7c5-4e8d-abcc-503f90609f51 4.jpg" alt="生態拼圖任務小精靈"></div></section>
+<section class="game-shell"><div class="hud"><div class="hud-group"><div class="metric"><small>MOVES</small><b id="moves">0</b></div><div class="metric"><small>TIME</small><b class="good" id="time">00:00</b></div></div><div class="metric"><small>SIZE</small><b>4×4</b></div></div>
+<div class="game-stage puzzle-stage">
+<div class="puzzle-layout"><div class="slide-puzzle" id="puzzle"></div><aside class="reference"><img src="assets/影印/c95e5a58-d7c5-4e8d-abcc-503f90609f51 4.jpg" alt="拼圖參考圖"><small>REFERENCE IMAGE</small><p>點擊空格旁邊的方塊即可移動。</p></aside></div>
+<div class="overlay" id="intro"><div class="overlay-icon">▦</div><h2>4×4 滑塊拼圖</h2><p>這不是交換式拼圖。你只能把空格旁邊的方塊滑進空位，完整還原圖片才算過關。</p><button class="primary-btn" id="start">開始拼圖</button></div>
+<div class="overlay hidden" id="result"><div class="overlay-icon">✦</div><h2>生態拼圖完成</h2><p id="resultText"></p><div class="result-actions"><button class="secondary-btn" id="retry">重新挑戰</button><a class="primary-btn" href="missions.html">回任務地圖</a></div></div>
+</div></section></main><div class="toast" id="toast"></div><script src="game3.js"></script></body></html>
