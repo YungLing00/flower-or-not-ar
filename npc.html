@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#06110f"><title>晉江小精靈｜花非花？</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="npc.css">
+</head>
+<body>
+<header><a href="index.html">← 返回花非花？</a><span>AI NPC / JINJIANG SPIRIT</span><a href="missions.html">任務 →</a></header>
+<main>
+<section class="npc-hero">
+<div class="bot-zone">
+<div class="rings r1"></div><div class="rings r2"></div><div class="bot"><div class="leaves"><i></i><i></i><i></i></div><div class="head"><i></i><i></i><b></b></div><div class="body"></div></div>
+<div class="online"><i></i> ONLINE</div>
+</div>
+<div class="intro"><p class="eyebrow">AI NPC EXPERIENCE</p><h1>嗨，我是<br><span>晉江小精靈。</span></h1><p>這是網站版互動示範。內容只使用《花非花？》專題文件可支持的資訊，不會自行補寫晉江寮未提供的歷史細節。</p></div>
+</section>
+
+<section class="chat-shell">
+<div class="chat-head"><div><b>晉江小精靈</b><small>LOCAL CULTURE GUIDE</small></div><button id="resetChat">重新開始</button></div>
+<div class="messages" id="messages"></div>
+<div class="suggestions" id="suggestions"></div>
+<form id="chatForm"><input id="chatInput" autocomplete="off" placeholder="輸入：這個專題在做什麼？"><button>送出</button></form>
+</section>
+
+<section class="knowledge">
+<p class="eyebrow">KNOWLEDGE MAP</p>
+<h2>可以問我這些。</h2>
+<div class="knowledge-grid">
+<button data-question="這個專題在做什麼？"><span>01</span><b>專題概念</b><small>AR × 文化 × 生態</small></button>
+<button data-question="遊戲怎麼玩？"><span>02</span><b>遊戲流程</b><small>掃描 × 任務 × 徽章</small></button>
+<button data-question="AI NPC 的作用是什麼？"><span>03</span><b>AI NPC</b><small>互動知識入口</small></button>
+<button data-question="這個專題的研究結果呢？"><span>04</span><b>使用者測試</b><small>56 人 × 88%+</small></button>
+<button data-question="未來可以怎麼發展？"><span>05</span><b>未來展望</b><small>更多故事與場域</small></button>
+<button data-question="郭蘊苓負責什麼？"><span>06</span><b>個人角色</b><small>互動 × AI × 視覺</small></button>
+</div>
+</section>
+</main>
+<footer><span>Flower or Not? / AI NPC Web Demo</span><a href="ar.html">前往 AR Garden →</a></footer>
+<script src="npc.js"></script>
+</body></html>
