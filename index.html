@@ -1,323 +1,328 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="zh-Hant">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="花非花？—以 AR、遊戲化與 AI NPC 連結晉江寮地方文化、生態教育與永續。" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#06110f">
+  <meta name="description" content="《花非花？》—以 AR、AI NPC 與遊戲化互動連結晉江寮地方文化、生態教育與永續。">
   <title>花非花？｜Flower or Not?</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;600;700;900&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <div class="cursor-glow" id="cursorGlow"></div>
 
-  <header class="nav">
-    <a class="brand" href="#top">
-      <span class="brand-mark">✦</span>
-      <span>FLOWER OR NOT?</span>
+  <header class="site-nav" id="siteNav">
+    <a href="#top" class="brand">
+      <span class="brand-icon" aria-hidden="true">
+        <i></i><i></i><i></i><i></i>
+      </span>
+      <span><b>花非花？</b><small>FLOWER OR NOT?</small></span>
     </a>
-    <nav>
-      <a href="#about">專題概念</a>
-      <a href="#experience">互動體驗</a>
-      <a href="#screens">實機畫面</a>
-      <a href="#technology">技術</a>
+    <nav id="desktopNav">
+      <a href="#concept">概念</a>
+      <a href="#experience">體驗</a>
+      <a href="#plants">植物</a>
+      <a href="#research">研究</a>
       <a href="#role">我的角色</a>
-      <a href="#outcome">成果</a>
     </nav>
-    <button class="menu-btn" id="menuBtn" aria-label="開啟選單">☰</button>
+    <div class="nav-actions">
+      <a class="nav-ar" href="ar.html">啟動 AR</a>
+      <button class="menu-btn" id="menuBtn" aria-label="開啟選單">☰</button>
+    </div>
   </header>
 
-  <main id="top">
-    <section class="hero section">
-      <div class="hero-grid">
-        <div class="hero-copy reveal">
-          <p class="eyebrow">AR × CULTURAL HERITAGE × SUSTAINABILITY</p>
-          <h1>花非花？</h1>
-          <h2>讓地方文化，在科技裡重新被看見。</h2>
-          <p class="hero-text">
-            以臺中沙鹿晉江寮為場域，結合擴增實境、遊戲化互動、3D 植物與 AI NPC，
-            將在地文化、生態教育與數位體驗重新連結。
-          </p>
-          <div class="hero-actions">
-            <a class="btn primary" href="ar.html">啟動互動 AR</a>
-            <a class="btn ghost" href="#experience">探索專題體驗</a>
-            <a class="btn ghost" href="#outcome">查看研究成果</a>
-          </div>
-          <div class="hero-tags">
-            <span>Local Revitalization</span><span>AR</span><span>Gamification</span><span>AI NPC</span>
-          </div>
-        </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#concept">專題概念</a>
+    <a href="#experience">互動體驗</a>
+    <a href="#screens">實機畫面</a>
+    <a href="#plants">植物圖鑑</a>
+    <a href="#research">研究成果</a>
+    <a href="#role">我的角色</a>
+    <a href="ar.html">啟動 AR</a>
+    <a href="npc.html">AI NPC</a>
+    <a href="missions.html">互動任務</a>
+  </div>
 
-        <div class="hero-visual reveal">
-          <div class="orb orb-a"></div>
-          <div class="orb orb-b"></div>
-          <div class="phone">
-            <div class="phone-top"></div>
-            <div class="phone-screen">
-              <div class="ar-label">AR GARDEN / JINJIANGLIAO</div>
-              <div class="island">
-                <div class="plant">
-                  <span class="leaf l1"></span>
-                  <span class="leaf l2"></span>
-                  <span class="leaf l3"></span>
-                  <span class="leaf l4"></span>
-                  <span class="stem"></span>
-                </div>
-              </div>
-              <div class="scan-line"></div>
-              <div class="phone-ui">
-                <button>植物</button><button>任務</button><button>徽章</button>
-              </div>
-            </div>
-          </div>
-          <div class="float-card card-1"><b>10</b><span>種植物</span></div>
-          <div class="float-card card-2"><b>AR</b><span>實地探索</span></div>
-          <div class="float-card card-3"><b>AI</b><span>NPC 對話</span></div>
+  <main id="top">
+    <section class="hero">
+      <div class="hero-noise"></div>
+      <div class="hero-copy reveal">
+        <p class="kicker">AR × CULTURAL HERITAGE × SUSTAINABILITY</p>
+        <h1><span>花非花？</span><br>讓地方文化，<br>在科技裡重新被看見。</h1>
+        <p class="hero-lead">
+          以臺中沙鹿晉江寮為場域，結合擴增實境、遊戲化互動、3D 植物與 AI NPC，
+          將在地文化、生態教育與數位體驗重新連結。
+        </p>
+        <div class="hero-cta">
+          <a class="button primary" href="ar.html">開啟互動 AR <span>↗</span></a>
+          <a class="button secondary" href="#experience">查看完整專題 <span>↓</span></a>
+        </div>
+        <div class="hero-pills">
+          <span>Local Revitalization</span><span>AR</span><span>Gamification</span><span>AI NPC</span>
         </div>
       </div>
-      <div class="scroll-hint">SCROLL TO EXPLORE ↓</div>
+
+      <div class="hero-stage reveal" aria-label="花非花數位花園示意">
+        <div class="halo h1"></div><div class="halo h2"></div>
+        <div class="device">
+          <div class="device-notch"></div>
+          <div class="device-screen">
+            <div class="ar-grid"></div>
+            <div class="ui-top"><span>JINJIANGLIAO</span><b>AR GARDEN</b></div>
+            <div class="digital-plant">
+              <div class="digital-flower"><i></i><i></i><i></i><i></i><i></i><b></b></div>
+              <span class="d-stem"></span>
+              <span class="d-leaf l"></span><span class="d-leaf r"></span>
+              <div class="d-pot"></div>
+            </div>
+            <div class="scan-beam"></div>
+            <div class="device-dock"><i>植物</i><i>任務</i><i>徽章</i></div>
+          </div>
+        </div>
+        <div class="stage-tag t1"><b>10</b><span>植物</span></div>
+        <div class="stage-tag t2"><b>4</b><span>任務點</span></div>
+        <div class="stage-tag t3"><b>AI</b><span>NPC</span></div>
+      </div>
+
+      <div class="hero-scroll">SCROLL TO EXPLORE <span>↓</span></div>
     </section>
 
-    <section class="section intro" id="about">
-      <div class="section-head reveal">
-        <p class="eyebrow">01 / WHY THIS PROJECT</p>
+    <section class="quick-stats">
+      <article><strong data-count="56">0</strong><span>位不同年齡層測試者</span></article>
+      <article><strong data-count="88" data-suffix="%+">0</strong><span>認為遊戲設計新穎有趣</span></article>
+      <article><strong data-count="10">0</strong><span>種植物展示</span></article>
+      <article><strong data-count="4">0</strong><span>個主要任務點</span></article>
+    </section>
+
+    <section class="section concept" id="concept">
+      <div class="section-label reveal"><span>01</span> WHY THIS PROJECT</div>
+      <div class="section-title reveal">
         <h2>當地方記憶逐漸淡去，<br>科技能不能成為新的入口？</h2>
       </div>
-      <div class="intro-grid">
-        <div class="large-copy reveal">
+      <div class="concept-grid">
+        <div class="concept-statement reveal">
           <p>
             晉江寮擁有自然與人文資源，但地方文化記憶與生態特色容易在都市發展中被忽略。
-            《花非花？》不是單純做一個 AR App，而是希望透過互動設計，讓使用者主動走進社區、
-            探索故事，並重新建立對地方的理解與連結。
+            《花非花？》不是只做一個 AR App，而是希望透過互動設計，讓使用者主動走進社區、
+            探索故事，重新建立對地方的理解與連結。
           </p>
         </div>
-        <div class="value-cards">
-          <article class="value-card reveal">
-            <span>01</span><h3>文化保存</h3><p>把晉江寮的歷史、地景與地方故事轉化成可以被探索的數位內容。</p>
-          </article>
-          <article class="value-card reveal">
-            <span>02</span><h3>生態教育</h3><p>透過植物辨識、3D 展示與遊戲任務，降低學習門檻。</p>
-          </article>
-          <article class="value-card reveal">
-            <span>03</span><h3>地方創生</h3><p>讓遊客不只「經過」社區，而是透過任務與互動理解地方特色。</p>
-          </article>
+        <div class="concept-cards">
+          <article class="glass-card reveal"><span>01</span><h3>文化保存</h3><p>把地方歷史、地景與故事轉化為可被探索的數位內容。</p></article>
+          <article class="glass-card reveal"><span>02</span><h3>生態教育</h3><p>透過植物展示、AR 與遊戲任務，降低學習門檻。</p></article>
+          <article class="glass-card reveal"><span>03</span><h3>地方創生</h3><p>讓使用者不只經過場域，而是以任務與互動理解地方特色。</p></article>
         </div>
       </div>
     </section>
 
     <section class="section experience" id="experience">
-      <div class="section-head reveal">
-        <p class="eyebrow">02 / INTERACTION JOURNEY</p>
-        <h2>把地方探索，變成一場任務。</h2>
-        <p>掃描任務點 → 接收挑戰 → 完成闖關 → 獲取徽章與知識</p>
+      <div class="section-label reveal"><span>02</span> EXPERIENCE FLOW</div>
+      <div class="section-title reveal">
+        <h2>把地方探索，<br>變成一場任務。</h2>
+        <p>掃描任務點 → 接收挑戰 → 完成闖關 → 獲得徽章與知識</p>
       </div>
 
-      <div class="journey">
-        <button class="journey-step active reveal" data-step="0"><b>01</b><span>SCAN</span><small>掃描任務點</small></button>
-        <div class="line"></div>
-        <button class="journey-step reveal" data-step="1"><b>02</b><span>PLAY</span><small>進入互動關卡</small></button>
-        <div class="line"></div>
-        <button class="journey-step reveal" data-step="2"><b>03</b><span>LEARN</span><small>認識植物與文化</small></button>
-        <div class="line"></div>
-        <button class="journey-step reveal" data-step="3"><b>04</b><span>COLLECT</span><small>獲得徽章</small></button>
+      <div class="journey-tabs reveal">
+        <button class="active" data-journey="0"><b>01</b><span>SCAN</span><small>掃描任務點</small></button>
+        <button data-journey="1"><b>02</b><span>PLAY</span><small>進入互動關卡</small></button>
+        <button data-journey="2"><b>03</b><span>LEARN</span><small>認識文化生態</small></button>
+        <button data-journey="3"><b>04</b><span>COLLECT</span><small>獲得徽章</small></button>
       </div>
 
-      <div class="journey-panel reveal">
-        <div>
-          <p class="panel-no" id="panelNo">01</p>
-          <h3 id="panelTitle">掃描任務點</h3>
-          <p id="panelText">玩家在晉江寮社區找到指定圖像，以 AR 掃描啟動對應任務，讓真實地點成為遊戲入口。</p>
+      <div class="journey-display reveal">
+        <div class="journey-copy">
+          <span id="journeyNo">01 / SCAN</span>
+          <h3 id="journeyTitle">掃描真實場域，啟動數位任務。</h3>
+          <p id="journeyText">玩家在晉江寮找到指定圖像，以 AR 掃描啟動任務，讓實體地點成為互動體驗的入口。</p>
+          <a id="journeyLink" href="ar.html">直接體驗 →</a>
         </div>
-        <div class="mini-phone" id="miniPhone">
-          <div class="scan-box"><i></i><i></i><i></i><i></i><span>SCANNING...</span></div>
+        <div class="journey-visual">
+          <div class="scanner">
+            <i></i><i></i><i></i><i></i>
+            <span>SCANNING</span>
+            <div class="scanner-leaf">✦</div>
+          </div>
         </div>
       </div>
 
       <div class="feature-grid">
-        <article class="feature reveal"><div class="feature-icon">◎</div><h3>AR 實地探索</h3><p>將社區中的實體場域轉化成可觸發的數位任務。</p></article>
-        <article class="feature reveal"><div class="feature-icon">↻</div><h3>360° 植物觀察</h3><p>展示 10 種植物，讓使用者查看完整外觀與相關知識。</p></article>
-        <article class="feature reveal"><div class="feature-icon">✦</div><h3>AI NPC</h3><p>與「晉江小精靈」對話，取得地方歷史、文化與生態資訊。</p></article>
-        <article class="feature reveal"><div class="feature-icon">▦</div><h3>遊戲化任務</h3><p>包含 3D 跳格子、2D 拼圖等玩法，提高探索動機。</p></article>
-        <article class="feature reveal"><div class="feature-icon">◈</div><h3>植物自訂</h3><p>調整植物色彩、造型與盆栽，創造個人化的數位植物。</p></article>
-        <article class="feature reveal"><div class="feature-icon">⬡</div><h3>徽章與進度</h3><p>記錄簽到、任務、植物與探索歷程，建立持續參與感。</p></article>
+        <article class="feature-card reveal"><span>◎</span><h3>AR 實地探索</h3><p>將社區實體場域轉化成可觸發的數位任務。</p></article>
+        <article class="feature-card reveal"><span>↻</span><h3>360° 植物觀察</h3><p>展示專題收錄植物，讓使用者查看模型與資訊。</p></article>
+        <article class="feature-card reveal"><span>✦</span><h3>AI NPC</h3><p>以「晉江小精靈」作為知識入口，建立文化互動。</p><a href="npc.html">開啟 NPC →</a></article>
+        <article class="feature-card reveal"><span>▦</span><h3>遊戲化任務</h3><p>以跳格子、拼圖等任務提高探索動機。</p><a href="missions.html">開始任務 →</a></article>
+        <article class="feature-card reveal"><span>◈</span><h3>植物自訂</h3><p>調整植物造型與盆栽，建立個人化數位植物。</p></article>
+        <article class="feature-card reveal"><span>⬡</span><h3>徽章進度</h3><p>透過完成任務與蒐集，讓探索歷程可以被記錄。</p></article>
       </div>
     </section>
 
-
-    <section class="section real-screens" id="screens">
-      <div class="section-head reveal">
-        <p class="eyebrow">03 / REAL APP SCREENS</p>
-        <h2>從概念，真正做到手機裡。</h2>
-        <p>以下畫面來自《花非花？》實際專題 App 與開發成果，包含主選單、3D 植物與 AI NPC、遊戲關卡，以及 AR 植物資訊展示。</p>
+    <section class="section screens" id="screens">
+      <div class="section-label reveal"><span>03</span> REAL APP SCREENS</div>
+      <div class="section-title reveal">
+        <h2>從概念，<br>真正做到手機裡。</h2>
+        <p>以下畫面來自原始專題簡報中的實際 App 與開發成果。</p>
       </div>
 
-      <div class="screen-showcase">
-        <article class="screen-card screen-wide reveal">
-          <div class="screen-media">
-            <div class="screen-loading">LOADING APP SCREEN...</div>
-            <img class="real-shot" data-b64="assets/app-menu.b64" alt="花非花 App 主選單與數位花園介面">
-          </div>
-          <div class="screen-copy">
-            <span>01 / MAIN MENU</span>
-            <h3>數碼花園主選單</h3>
-            <p>主介面以漂浮島與植物作為核心視覺，將任務、數碼花園、展覽館、植物自訂等功能集中在同一個探索入口。</p>
-          </div>
+      <div class="screen-grid">
+        <article class="screen-card wide reveal" data-lightbox="assets/app-menu.b64">
+          <div class="screen-media"><span>LOADING...</span><img class="b64-image" data-b64="assets/app-menu.b64" alt="花非花 App 主選單"></div>
+          <div class="screen-info"><small>01 / MAIN MENU</small><h3>數碼花園主選單</h3><p>將任務、數碼花園、展覽館與植物相關功能集中於探索入口。</p></div>
         </article>
-
-        <article class="screen-card reveal">
-          <div class="screen-media">
-            <div class="screen-loading">LOADING APP SCREEN...</div>
-            <img class="real-shot" data-b64="assets/app-model-npc.b64" alt="花非花 3D 植物自訂、數碼花園與 AI NPC 畫面">
-          </div>
-          <div class="screen-copy">
-            <span>02 / 3D + AI NPC</span>
-            <h3>植物自訂 × 晉江小精靈</h3>
-            <p>玩家能調整植物外觀、探索 3D 場域，也能與 AI NPC 互動取得晉江寮相關的文化與生態資訊。</p>
-          </div>
+        <article class="screen-card reveal" data-lightbox="assets/app-model-npc.b64">
+          <div class="screen-media"><span>LOADING...</span><img class="b64-image" data-b64="assets/app-model-npc.b64" alt="植物自訂與 AI NPC"></div>
+          <div class="screen-info"><small>02 / 3D + AI NPC</small><h3>植物自訂 × 晉江小精靈</h3><p>結合 3D 內容與 AI NPC，讓資訊不只被閱讀，而能被對話探索。</p></div>
         </article>
-
-        <article class="screen-card reveal">
-          <div class="screen-media">
-            <div class="screen-loading">LOADING APP SCREEN...</div>
-            <img class="real-shot" data-b64="assets/app-games.b64" alt="花非花 3D 跳格子與 2D 拼圖遊戲畫面">
-          </div>
-          <div class="screen-copy">
-            <span>03 / MINI GAMES</span>
-            <h3>3D 跳格子 × 2D 拼圖</h3>
-            <p>不同任務點搭配不同遊戲機制，讓文化探索不只是閱讀文字，而是透過操作、挑戰與完成任務來形成記憶。</p>
-          </div>
+        <article class="screen-card reveal" data-lightbox="assets/app-games.b64">
+          <div class="screen-media"><span>LOADING...</span><img class="b64-image" data-b64="assets/app-games.b64" alt="跳格子與拼圖遊戲"></div>
+          <div class="screen-info"><small>03 / MINI GAMES</small><h3>跳格子 × 拼圖</h3><p>不同任務點搭配不同操作機制，讓文化學習透過行動留下記憶。</p></div>
         </article>
-
-        <article class="screen-card screen-wide reveal">
-          <div class="screen-media">
-            <div class="screen-loading">LOADING APP SCREEN...</div>
-            <img class="real-shot" data-b64="assets/app-plants.b64" alt="花非花 AR 植物辨識與植物資訊介面">
-          </div>
-          <div class="screen-copy">
-            <span>04 / AR PLANTS</span>
-            <h3>AR 植物資訊展示</h3>
-            <p>透過掃描與 AR 顯示植物模型，玩家可以查看植物外觀與相關資訊，將社區現地探索延伸成可互動的生態學習體驗。</p>
-          </div>
+        <article class="screen-card wide reveal" data-lightbox="assets/app-plants.b64">
+          <div class="screen-media"><span>LOADING...</span><img class="b64-image" data-b64="assets/app-plants.b64" alt="AR 植物資訊"></div>
+          <div class="screen-info"><small>04 / AR PLANTS</small><h3>AR 植物資訊展示</h3><p>透過 AR 顯示植物模型與資訊，將現地探索延伸成數位生態學習。</p></div>
         </article>
       </div>
-
-      <p class="screen-note reveal">Project screenshots are reproduced from the original Flower or Not? presentation materials.</p>
     </section>
 
-    <section class="section visual-system">
-      <div class="section-head reveal">
-        <p class="eyebrow">04 / VISUAL LANGUAGE</p>
-        <h2>Nature meets Technology.</h2>
+    <section class="section plants" id="plants">
+      <div class="section-label reveal"><span>04</span> DIGITAL HERBARIUM</div>
+      <div class="section-title reveal">
+        <h2>10 種植物，<br>成為地方生態的數位入口。</h2>
+        <p>植物名稱依你提供的原始專題素材整理；網站不額外添加未經原資料支持的植物知識。</p>
       </div>
-      <div class="visual-grid">
-        <div class="palette-card reveal">
-          <div class="swatch green"><span>#44C767</span></div>
-          <div class="swatch cyan"><span>#00AEEF</span></div>
-          <div class="swatch dark"><span>#071411</span></div>
-          <div class="swatch light"><span>#F2FFF9</span></div>
+
+      <div class="plant-filter reveal">
+        <button class="active" data-filter="all">ALL</button>
+        <button data-filter="leaf">LEAF</button>
+        <button data-filter="flower">FLOWER</button>
+        <button data-filter="tree">TREE</button>
+      </div>
+
+      <div class="plant-grid" id="plantGrid">
+        <article class="plant-card reveal" data-category="leaf" data-name="互葉白千層" data-latin="Melaleuca alternifolia"><div class="plant-symbol p1"><i></i><i></i><i></i></div><span>01</span><h3>互葉白千層</h3><small>Melaleuca alternifolia</small><button>查看 AR</button></article>
+        <article class="plant-card reveal" data-category="tree" data-name="木瓜" data-latin="Papaya"><div class="plant-symbol p2"><i></i><i></i><i></i></div><span>02</span><h3>木瓜</h3><small>PROJECT PLANT</small><button>查看 AR</button></article>
+        <article class="plant-card reveal" data-category="leaf" data-name="左手香" data-latin="Project Plant"><div class="plant-symbol p3"><i></i><i></i><i></i></div><span>03</span><h3>左手香</h3><small>PROJECT PLANT</small><button>查看 AR</button></article>
+        <article class="plant-card reveal" data-category="flower" data-name="杭菊" data-latin="Project Plant"><div class="plant-symbol p4"><i></i><i></i><i></i></div><span>04</span><h3>杭菊</h3><small>PROJECT PLANT</small><button>查看 AR</button></article>
+        <article class="plant-card reveal" data-category="flower" data-name="粉尊鼠尾草" data-latin="Project Plant"><div class="plant-symbol p5"><i></i><i></i><i></i></div><span>05</span><h3>粉尊鼠尾草</h3><small>PROJECT PLANT</small><button>查看 AR</button></article>
+        <article class="plant-card reveal" data-category="leaf" data-name="斑艾" data-latin="Crossostephium chinense"><div class="plant-symbol p6"><i></i><i></i><i></i></div><span>06</span><h3>斑艾</h3><small>Crossostephium chinense</small><button>查看 AR</button></article>
+        <article class="plant-card reveal" data-category="tree" data-name="黑板樹" data-latin="Project Plant"><div class="plant-symbol p7"><i></i><i></i><i></i></div><span>07</span><h3>黑板樹</h3><small>PROJECT PLANT</small><button>查看 AR</button></article>
+        <article class="plant-card reveal" data-category="flower" data-name="聖誕紅" data-latin="Project Plant"><div class="plant-symbol p8"><i></i><i></i><i></i></div><span>08</span><h3>聖誕紅</h3><small>PROJECT PLANT</small><button>查看 AR</button></article>
+        <article class="plant-card reveal" data-category="leaf" data-name="變葉木" data-latin="Project Plant"><div class="plant-symbol p9"><i></i><i></i><i></i></div><span>09</span><h3>變葉木</h3><small>PROJECT PLANT</small><button>查看 AR</button></article>
+        <article class="plant-card reveal" data-category="leaf" data-name="鱗蓋鳳尾蕨" data-latin="Pteris vittata"><div class="plant-symbol p10"><i></i><i></i><i></i></div><span>10</span><h3>鱗蓋鳳尾蕨</h3><small>Pteris vittata</small><button>查看 AR</button></article>
+      </div>
+    </section>
+
+    <section class="section npc-section">
+      <div class="npc-panel reveal">
+        <div class="npc-art">
+          <div class="npc-orbit o1"></div><div class="npc-orbit o2"></div>
+          <div class="npc-bot"><div class="npc-leaves"><i></i><i></i><i></i></div><div class="npc-face"><i></i><i></i><b></b></div><div class="npc-body"></div></div>
         </div>
-        <div class="visual-copy reveal">
-          <p>
-            專題原始視覺以藍綠漸層作為主色。綠色代表自然、生命力，藍色代表科技、
-            穩定與未來感。網站延續相同邏輯，加入深色介面、發光邊框與動態漸層，
-            強化「自然 × 科技」的核心辨識。
-          </p>
+        <div class="npc-copy">
+          <p class="kicker">AI NPC / JINJIANG SPIRIT</p>
+          <h2>把知識藏進對話，<br>而不是塞進說明頁。</h2>
+          <p>原專題透過 AI NPC「晉江小精靈」讓玩家理解晉江寮歷史、文化與生態。網站版提供互動式對話示範，不放置任何 API 金鑰。</p>
+          <a class="button primary" href="npc.html">和小精靈對話 <span>→</span></a>
         </div>
       </div>
     </section>
 
     <section class="section tech" id="technology">
-      <div class="section-head reveal">
-        <p class="eyebrow">05 / TECHNOLOGY</p>
-        <h2>從 3D 建模，到 AR 與 AI 對話。</h2>
+      <div class="section-label reveal"><span>05</span> TECHNOLOGY</div>
+      <div class="section-title reveal">
+        <h2>從 3D 建模，<br>到 AR 與 AI 對話。</h2>
       </div>
-      <div class="tech-cloud reveal">
-        <span>Unity 3D</span><span>AR</span><span>3ds Max</span><span>Blender</span>
-        <span>Photoshop</span><span>Illustrator</span><span>OpenAI API</span><span>Android</span>
+      <div class="tech-tags reveal">
+        <span>Unity 3D</span><span>AR</span><span>3ds Max</span><span>Blender</span><span>Photoshop</span><span>Illustrator</span><span>OpenAI API</span><span>Android</span>
       </div>
       <div class="architecture reveal">
-        <div class="arch-node"><small>REAL WORLD</small><strong>晉江寮場域</strong></div>
-        <div class="arch-arrow">→</div>
-        <div class="arch-node highlight"><small>INTERACTION</small><strong>AR 掃描 / 任務</strong></div>
-        <div class="arch-arrow">→</div>
-        <div class="arch-node"><small>CONTENT</small><strong>3D 植物 / AI NPC</strong></div>
-        <div class="arch-arrow">→</div>
-        <div class="arch-node"><small>OUTCOME</small><strong>文化 × 生態認知</strong></div>
+        <article><small>REAL WORLD</small><b>晉江寮場域</b></article><i>→</i>
+        <article class="active"><small>INTERACTION</small><b>AR 掃描 / 任務</b></article><i>→</i>
+        <article><small>CONTENT</small><b>3D 植物 / AI NPC</b></article><i>→</i>
+        <article><small>OUTCOME</small><b>文化 × 生態認知</b></article>
+      </div>
+    </section>
+
+    <section class="section research" id="research">
+      <div class="section-label reveal"><span>06</span> USER TESTING</div>
+      <div class="section-title reveal">
+        <h2>不只做出來，<br>也真的讓使用者玩。</h2>
+      </div>
+      <div class="research-layout">
+        <div class="big-result reveal">
+          <span>清水測試</span>
+          <strong>88%+</strong>
+          <p>簡報記錄：56 位不同年齡層測試者中，超過 88% 認為遊戲設計新穎且有趣，並能激發對地方的好奇心。</p>
+        </div>
+        <div class="finding-list">
+          <article class="reveal"><small>WHAT WORKED</small><h3>互動方式具吸引力</h3><p>原報告指出玩家普遍認為操作簡單直觀，互動過程具有趣味性。</p></article>
+          <article class="reveal warning"><small>CHALLENGE</small><h3>圖像辨識準確度</h3><p>部分玩家在掃描指定圖像啟動任務時遇到辨識不準確，是後續優化重點。</p></article>
+          <article class="reveal"><small>NEXT STEP</small><h3>更多故事與場域</h3><p>未來規劃增加居民深度訪談、生態問答與更多互動內容，並延伸至其他文化場域。</p></article>
+        </div>
       </div>
     </section>
 
     <section class="section role" id="role">
-      <div class="section-head reveal">
-        <p class="eyebrow">06 / MY ROLE</p>
-        <h2>郭蘊苓｜跨互動、AI、視覺與內容製作</h2>
+      <div class="section-label reveal"><span>07</span> MY ROLE</div>
+      <div class="section-title reveal">
+        <h2>郭蘊苓｜跨互動、AI、<br>視覺與內容製作。</h2>
       </div>
-      <div class="role-layout">
+      <div class="role-grid">
         <div class="role-intro reveal">
-          <p>
-            在專題中，我參與的不只是單一功能，而是從前期企劃、互動關卡、視覺與 3D，
-            到 AI 串接、影音與最終展示，負責把不同環節整合成完整體驗。
-          </p>
+          <p>在這個專題裡，我參與的不只是單一功能，而是從前期企劃、互動關卡、3D 與 UI，到 AI 串接、影音與最終展示，負責把不同環節整合成完整體驗。</p>
         </div>
         <div class="role-list">
-          <article class="role-item reveal"><span>01</span><div><h3>Interaction Design</h3><p>關卡發想、功能發想、故事腳本、遊戲體驗規劃</p></div></article>
-          <article class="role-item reveal"><span>02</span><div><h3>AI Integration</h3><p>ChatGPT API 與 AI NPC 互動內容規劃</p></div></article>
-          <article class="role-item reveal"><span>03</span><div><h3>Visual & UI Design</h3><p>UI 視覺、徽章模型、整體呈現與簡報設計</p></div></article>
-          <article class="role-item reveal"><span>04</span><div><h3>3D & Game Content</h3><p>植物模型、NPC 模型與遊戲內容製作</p></div></article>
-          <article class="role-item reveal"><span>05</span><div><h3>Project & Media</h3><p>進度規劃、報告、音樂音效、影片拍攝與剪輯</p></div></article>
+          <article class="reveal"><span>01</span><div><h3>Interaction Design</h3><p>進度規劃、關卡發想、功能發想、故事腳本</p></div></article>
+          <article class="reveal"><span>02</span><div><h3>AI Integration</h3><p>ChatGPT API 與 AI NPC 互動內容</p></div></article>
+          <article class="reveal"><span>03</span><div><h3>Visual & UI</h3><p>UI 視覺、徽章模型、簡報與整體呈現</p></div></article>
+          <article class="reveal"><span>04</span><div><h3>3D & Game Content</h3><p>植物模型、NPC 模型與遊戲內容製作</p></div></article>
+          <article class="reveal"><span>05</span><div><h3>Media Production</h3><p>音樂音效、影片拍攝與剪輯、報告製作</p></div></article>
         </div>
-      </div>
-    </section>
-
-    <section class="section outcome" id="outcome">
-      <div class="section-head reveal">
-        <p class="eyebrow">07 / OUTCOME</p>
-        <h2>不只做出來，也實際讓使用者體驗。</h2>
-      </div>
-      <div class="stats">
-        <article class="stat reveal"><strong data-count="56">0</strong><span>位不同年齡層測試者</span></article>
-        <article class="stat reveal"><strong data-count="88" data-suffix="%+">0</strong><span>認為遊戲設計新穎且有趣</span></article>
-        <article class="stat reveal"><strong data-count="10">0</strong><span>種植物展示</span></article>
-        <article class="stat reveal"><strong data-count="4">0</strong><span>個主要任務點</span></article>
-      </div>
-
-      <div class="finding-grid">
-        <article class="finding reveal"><span>WHAT WORKED</span><h3>互動與易用性</h3><p>測試回饋顯示，多數玩家認為操作直觀，AR 與遊戲化方式能增加探索地方文化與生態的興趣。</p></article>
-        <article class="finding warn reveal"><span>CHALLENGE</span><h3>圖像辨識準確度</h3><p>部分使用者在掃描指定圖像啟動任務時遇到辨識不穩定，是後續技術優化的重要方向。</p></article>
-        <article class="finding reveal"><span>NEXT STEP</span><h3>擴充故事與場域</h3><p>未來可增加居民訪談、生態問答與更多植物模型，並將模式延伸到其他具有文化意涵的社區。</p></article>
       </div>
     </section>
 
     <section class="section impact">
-      <div class="impact-card reveal">
-        <div>
-          <p class="eyebrow">08 / SOCIAL IMPACT</p>
-          <h2>科技不是終點，<br>地方連結才是。</h2>
-        </div>
-        <div class="impact-copy">
-          <p>
-            《花非花？》希望建立一個可被複製的數位文化保存模式：
-            透過 AR、遊戲與 AI，讓文化不只被「展示」，而是被使用者主動探索與參與。
-          </p>
-          <div class="sdgs"><span>SDG 4｜優質教育</span><span>SDG 11｜永續城市與社區</span></div>
-        </div>
+      <div class="impact-panel reveal">
+        <div><p class="kicker">SOCIAL IMPACT</p><h2>科技不是終點，<br>地方連結才是。</h2></div>
+        <div><p>《花非花？》希望建立一個可被延伸的數位文化保存方式：透過 AR、遊戲與 AI，讓文化不只被展示，而是被使用者主動探索與參與。</p><div class="sdg"><span>SDG 4｜優質教育</span><span>SDG 11｜永續城市與社區</span></div></div>
       </div>
     </section>
 
-    <section class="section credits">
-      <p class="eyebrow reveal">PROJECT TEAM</p>
-      <h2 class="reveal">Flower or Not?</h2>
-      <p class="team reveal">林思岑 · 郭蘊苓 · 張書郡 · 張書亞 · 紀翊陞</p>
-      <p class="advisor reveal">指導教師｜王肇</p>
-      <a class="btn primary reveal" href="#top">回到最上方 ↑</a>
+    <section class="section final-cta">
+      <p class="kicker reveal">TRY THE EXPERIENCE</p>
+      <h2 class="reveal">不是只看作品，<br>直接進去玩。</h2>
+      <div class="final-links reveal">
+        <a href="ar.html"><span>01</span><b>AR GARDEN</b><small>相機植物互動</small></a>
+        <a href="npc.html"><span>02</span><b>AI NPC</b><small>晉江小精靈</small></a>
+        <a href="missions.html"><span>03</span><b>MISSIONS</b><small>互動任務與徽章</small></a>
+      </div>
+    </section>
+
+    <section class="credits">
+      <p>PROJECT TEAM</p>
+      <h2>Flower or Not?</h2>
+      <div>林思岑 · 郭蘊苓 · 張書郡 · 張書亞 · 紀翊陞</div>
+      <small>指導教師｜王肇</small>
     </section>
   </main>
 
-  <footer>
-    <span>© Flower or Not? Project</span>
-    <span>AR × Culture × Sustainability</span>
-  </footer>
+  <footer><span>© Flower or Not? Project</span><span>AR × Culture × Sustainability</span></footer>
+
+  <dialog class="plant-modal" id="plantModal">
+    <button id="plantModalClose" class="dialog-close">×</button>
+    <div class="modal-plant-icon"><i></i><i></i><i></i></div>
+    <small>DIGITAL HERBARIUM</small>
+    <h2 id="modalPlantName"></h2>
+    <p id="modalPlantLatin"></p>
+    <p class="modal-note">此植物為《花非花？》專題收錄植物之一。網站僅呈現原始素材可確認的名稱，未自行補充植物學描述。</p>
+    <a class="button primary" id="modalArLink" href="ar.html">在 AR 中查看 <span>→</span></a>
+  </dialog>
+
+  <div class="lightbox" id="lightbox" aria-hidden="true">
+    <button id="lightboxClose">×</button>
+    <img id="lightboxImg" alt="專題實機畫面放大">
+  </div>
 
   <script src="script.js"></script>
 </body>
