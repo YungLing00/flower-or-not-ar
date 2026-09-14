@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#06110f"><title>互動任務｜花非花？</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="missions.css">
+</head>
+<body>
+<header><a href="index.html">← 返回花非花？</a><span>MISSION SYSTEM</span><div class="badge">徽章 <b id="totalBadges">0</b>/4</div></header>
+<main>
+<section class="mission-hero"><p class="eyebrow">WEB MISSION DEMO</p><h1>完成 4 個任務，<br><span>解鎖數位花園徽章。</span></h1><p>這是依原專題「四個任務點、闖關、徽章」概念重製的網頁互動示範，不等同原 Unity App 的完整關卡。</p></section>
+<section class="mission-map">
+<button class="node active" data-mission="0"><i>01</i><b>SCAN</b><small>掃描模擬</small></button><span></span>
+<button class="node" data-mission="1"><i>02</i><b>PUZZLE</b><small>拼圖排序</small></button><span></span>
+<button class="node" data-mission="2"><i>03</i><b>QUIZ</b><small>專題問答</small></button><span></span>
+<button class="node" data-mission="3"><i>04</i><b>PATH</b><small>探索路徑</small></button>
+</section>
+
+<section class="mission-stage">
+<article class="mission-panel active" data-panel="0">
+<div class="panel-copy"><small>MISSION 01</small><h2>SCAN / 掃描任務點</h2><p>按住掃描按鈕，模擬原專題「掃描指定圖像 → 啟動任務」的流程。</p><button class="main-btn" id="scanBtn">按住開始掃描</button></div>
+<div class="scan-demo"><div class="scan-frame"><i></i><i></i><i></i><i></i><div class="target">✦</div><div class="beam"></div></div><div class="progress"><b id="scanProgress"></b></div><span id="scanStatus">TARGET NOT FOUND</span></div>
+</article>
+
+<article class="mission-panel" data-panel="1">
+<div class="panel-copy"><small>MISSION 02</small><h2>PUZZLE / 拼圖排序</h2><p>把「掃描、挑戰、學習、徽章」排成正確流程。點擊卡片即可依序放入答案。</p><button class="reset-btn" id="resetPuzzle">重新排列</button></div>
+<div><div class="answer-slots" id="answerSlots"><i>1</i><i>2</i><i>3</i><i>4</i></div><div class="puzzle-options" id="puzzleOptions"></div><p class="feedback" id="puzzleFeedback"></p></div>
+</article>
+
+<article class="mission-panel" data-panel="2">
+<div class="panel-copy"><small>MISSION 03</small><h2>QUIZ / 專題問答</h2><p>根據《花非花？》專題資料回答問題。</p></div>
+<div class="quiz-box"><p id="quizCount">QUESTION 1 / 3</p><h3 id="quizQuestion"></h3><div id="quizOptions"></div><p class="feedback" id="quizFeedback"></p></div>
+</article>
+
+<article class="mission-panel" data-panel="3">
+<div class="panel-copy"><small>MISSION 04</small><h2>PATH / 探索路徑</h2><p>依照 1 → 2 → 3 → 4 的順序點亮探索節點，完成最後一段任務。</p><button class="reset-btn" id="resetPath">重新開始</button></div>
+<div class="path-grid" id="pathGrid"><button data-step="3">3</button><button data-step="1">1</button><button data-step="4">4</button><button data-step="2">2</button></div>
+</article>
+</section>
+
+<section class="reward" id="reward"><div class="reward-icon">✦</div><p>MISSION COMPLETE</p><h2>數位花園探索完成。</h2><p>你完成了網站版四個互動任務。現在可以回到 AR Garden，繼續放置植物。</p><div><a href="ar.html">前往 AR Garden</a><a href="npc.html">找晉江小精靈</a></div></section>
+</main>
+<footer><span>Flower or Not? / Mission Web Demo</span><button id="clearProgress">清除任務進度</button></footer>
+<div class="toast" id="toast"></div>
+<script src="missions.js"></script>
+</body></html>
