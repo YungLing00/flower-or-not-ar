@@ -161,3 +161,35 @@ footer{width:min(1180px,calc(100% - 40px));margin:auto;padding:24px 0 34px;borde
   .palette-card{grid-template-columns:1fr 1fr}.swatch{height:150px}.visual-copy{font-size:19px}.stats{grid-template-columns:1fr}.stat{border-right:0;border-bottom:1px solid var(--line)}
   .impact-card{padding:34px 24px}.credits h2{font-size:54px}footer{flex-direction:column;gap:10px}
 }
+.real-screens{position:relative}
+.screen-showcase{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.screen-card{
+  border:1px solid var(--line);border-radius:28px;overflow:hidden;
+  background:linear-gradient(145deg,rgba(255,255,255,.035),rgba(255,255,255,.012));
+  transition:.3s ease;
+}
+.screen-card:hover{transform:translateY(-5px);border-color:rgba(91,239,185,.42);box-shadow:0 30px 80px rgba(0,0,0,.22)}
+.screen-wide{grid-column:span 2;display:grid;grid-template-columns:1.45fr .55fr;align-items:stretch}
+.screen-media{
+  min-height:360px;background:#050b09;display:grid;place-items:center;position:relative;overflow:hidden;
+  border-bottom:1px solid var(--line)
+}
+.screen-wide .screen-media{border-bottom:0;border-right:1px solid var(--line)}
+.real-shot{display:block;width:100%;height:100%;object-fit:contain;opacity:0;transition:opacity .45s ease,transform .7s ease}
+.real-shot.loaded{opacity:1}
+.screen-card:hover .real-shot.loaded{transform:scale(1.018)}
+.screen-loading{position:absolute;font:600 9px "Space Grotesk";letter-spacing:.16em;color:#57776c}
+.screen-copy{padding:28px}
+.screen-copy>span{font:600 10px "Space Grotesk";letter-spacing:.16em;color:#69efba}
+.screen-copy h3{font-size:24px;margin:12px 0 10px}
+.screen-copy p{color:var(--muted);line-height:1.8;font-size:14px;margin:0}
+.screen-note{color:#527267;font:500 10px "Space Grotesk";letter-spacing:.08em;margin-top:18px}
+@media(max-width:900px){
+  .screen-showcase{grid-template-columns:1fr}
+  .screen-wide{grid-column:auto;grid-template-columns:1fr}
+  .screen-wide .screen-media{border-right:0;border-bottom:1px solid var(--line)}
+}
+@media(max-width:600px){
+  .screen-media{min-height:260px}
+  .screen-copy{padding:22px}
+}
