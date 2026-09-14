@@ -1,22 +1,22 @@
 const $=(s,c=document)=>c.querySelector(s),$$=(s,c=document)=>[...c.querySelectorAll(s)];const app=$('.ar-app'),video=$('#camera'),fallback=$('#cameraFallback'),plant=$('#placedPlant'),hint=$('#hint'),statusText=$('#statusText'),toast=$('#toast'),panel=$('#plantPanel'),drawer=$('#plantDrawer');
 const plants=[
-{name:'互葉白千層',latin:'Melaleuca alternifolia',colors:['#61e57c','#05abc1','#d9fff2','#5ebaa0','#158973','#0a6a78']},
-{name:'木瓜',latin:'PROJECT PLANT',colors:['#66e86c','#25bd7c','#a7ff64','#28bd8c','#6ac958','#227c47']},
-{name:'左手香',latin:'PROJECT PLANT',colors:['#7eff8a','#00d5b8','#8aff70','#11bca2','#45aa73','#176f63']},
-{name:'杭菊',latin:'PROJECT PLANT',colors:['#73d987','#22a896','#ffe15b','#f2a532','#1da0aa','#16686d']},
-{name:'粉尊鼠尾草',latin:'PROJECT PLANT',colors:['#61d9a2','#1495a8','#f38cff','#8746ef','#16b7bb','#3a5e9a']},
-{name:'斑艾',latin:'Crossostephium chinense',colors:['#dce9df','#78bea0','#e9fff0','#9bcbb1','#9cbbaa','#506e63']},
-{name:'黑板樹',latin:'PROJECT PLANT',colors:['#82e6a3','#1b9e76','#b5ffe4','#24bd9b','#4eaa78','#1f6951']},
-{name:'聖誕紅',latin:'PROJECT PLANT',colors:['#4bdba4','#05a4af','#ff3655','#c60f3c','#f24355','#7e1831']},
-{name:'變葉木',latin:'PROJECT PLANT',colors:['#4fe2ce','#066d7f','#d6fff4','#32bba3','#12b09a','#20576a']},
-{name:'鱗蓋鳳尾蕨',latin:'Pteris vittata',colors:['#dfe9df','#67ac83','#effff6','#94b99c','#788f82','#3f594d']}
+{name:'互葉白千層',latin:'Melaleuca alternifolia',image:'assets/影印/互葉白千層 (Melaleuca alternifolia).webp'},
+{name:'木瓜',latin:'PROJECT PLANT',image:'assets/影印/木瓜.webp'},
+{name:'左手香',latin:'PROJECT PLANT',image:'assets/影印/左手香2.webp'},
+{name:'杭菊',latin:'PROJECT PLANT',image:'assets/影印/杭菊.webp'},
+{name:'粉尊鼠尾草',latin:'PROJECT PLANT',image:'assets/影印/粉尊鼠尾草.webp'},
+{name:'斑艾',latin:'Crossostephium chinense',image:'assets/影印/斑艾 (Crossostephium chinense).webp'},
+{name:'黑板樹',latin:'PROJECT PLANT',image:'assets/影印/黑板樹.webp'},
+{name:'聖誕紅',latin:'PROJECT PLANT',image:'assets/影印/聖誕紅.webp'},
+{name:'變葉木',latin:'PROJECT PLANT',image:'assets/影印/變葉木.webp'},
+{name:'鱗蓋鳳尾蕨',latin:'Pteris vittata',image:'assets/影印/鱗蓋鳳尾蕨 (Pteris vittata).webp'}
 ];
 let placed=false,scale=1,rotation=0,mode='plant',plantIndex=0;let collected=JSON.parse(localStorage.getItem('flower-ar-plants')||'[]');let missionProgress=JSON.parse(localStorage.getItem('flower-web-missions')||'[false,false,false,false]');
 $('#missionCount').textContent=missionProgress.filter(Boolean).length;$('#plantBadgeCount').textContent=collected.length;
 async function startCamera(){try{const stream=await navigator.mediaDevices.getUserMedia({video:{facingMode:{ideal:'environment'},width:{ideal:1920},height:{ideal:1080}},audio:false});video.srcObject=stream;await video.play();fallback.style.display='none';statusText.textContent='點擊畫面放置植物'}catch(e){fallback.style.display='grid';statusText.textContent='請允許相機權限';showToast('無法啟動相機，請檢查瀏覽器權限')}}startCamera();
 function showToast(msg){toast.textContent=msg;toast.classList.add('show');clearTimeout(showToast.t);showToast.t=setTimeout(()=>toast.classList.remove('show'),1700)}
 function setPos(x,y){plant.style.left=x+'px';plant.style.top=y+'px';plant.style.transform=`translate(-50%,-78%) scale(${scale}) rotate(${rotation}deg)`}
-function applyPlant(i){plantIndex=i;const p=plants[i],c=p.colors;plant.style.setProperty('--leaf1',c[0]);plant.style.setProperty('--leaf2',c[1]);plant.style.setProperty('--flower1',c[2]);plant.style.setProperty('--flower2',c[3]);plant.style.setProperty('--pot1',c[4]);plant.style.setProperty('--pot2',c[5]);$('#plantName').textContent=p.name;$('#plantLatin').textContent=p.latin;$$('#plantList button').forEach((b,n)=>b.classList.toggle('active',n===i));$('#collectBtn').textContent=collected.includes(p.name)?'已蒐集此植物 ✓':'蒐集這株植物徽章'}
+async function applyPlant(i){plantIndex=i;const p=plants[i];$('#plantName').textContent=p.name;$('#plantLatin').textContent=p.latin;$('#plantList button').forEach((b,n)=>b.classList.toggle('active',n===i));$('#collectBtn').textContent=collected.includes(p.name)?'已蒐集此植物 ✓':'蒐集這株植物徽章';const img=$('#plantImage'),model=$('#plantModel'),status=$('#modelStatus');img.src=p.image;img.classList.add('active');model.classList.remove('active');model.removeAttribute('src');status.textContent='2D PROJECT ASSET';const candidates=[`assets/植物大將軍/${p.name}/${p.name}.glb`,`assets/植物大將軍/${p.name}/model.glb`];for(const path of candidates){try{const r=await fetch(path,{method:'HEAD'});if(r.ok){model.src=path;model.classList.add('active');img.classList.remove('active');status.textContent='3D MODEL';break}}catch(e){}}}
 function renderPlantList(){plants.forEach((p,i)=>{const b=document.createElement('button');b.innerHTML=p.name+'<small>'+p.latin+'</small>';b.onclick=()=>{applyPlant(i);drawer.classList.remove('open');mode='plant';$$('.ar-toolbar button').forEach(x=>x.classList.remove('active'));$('[data-action="plant"]').classList.add('active');showToast('已選擇 '+p.name)};$('#plantList').appendChild(b)});const q=new URLSearchParams(location.search).get('plant');const found=plants.findIndex(p=>p.name===q);applyPlant(found>=0?found:0)}renderPlantList();
 app.addEventListener('click',e=>{if(e.target.closest('.ar-topbar,.hud,.ar-toolbar,.plant-panel,.plant-drawer,.marker-modal'))return;if(mode==='plant'){if(!placed){placed=true;plant.classList.add('visible');hint.textContent='拖曳植物可調整位置';statusText.textContent='植物已放置';showToast('植物已放置到 AR 場景')}setPos(e.clientX,e.clientY)}});
 let drag=false,start=null;plant.addEventListener('pointerdown',e=>{drag=true;start={x:e.clientX,y:e.clientY,scale,rotation,left:plant.offsetLeft,top:plant.offsetTop};plant.setPointerCapture(e.pointerId);e.stopPropagation()});plant.addEventListener('pointermove',e=>{if(!drag)return;const dx=e.clientX-start.x,dy=e.clientY-start.y;if(mode==='rotate'){rotation=start.rotation+dx*.8;setPos(plant.offsetLeft,plant.offsetTop)}else if(mode==='scale'){scale=Math.max(.45,Math.min(2.2,start.scale-dy/180));setPos(plant.offsetLeft,plant.offsetTop)}else setPos(start.left+dx,start.top+dy)});plant.addEventListener('pointerup',()=>drag=false);plant.addEventListener('pointercancel',()=>drag=false);
