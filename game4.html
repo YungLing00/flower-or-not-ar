@@ -1,0 +1,12 @@
+<!doctype html><html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#06110f"><title>地方跑酷｜花非花？</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet"><link rel="stylesheet" href="game-common.css"><link rel="stylesheet" href="game4.css"></head><body>
+<header class="topbar"><a href="missions.html">← 任務地圖</a><span>MISSION 04 / LOCAL RUN</span><a href="ar.html">AR Garden →</a></header>
+<main class="game-page">
+<section class="game-hero"><div><p class="eyebrow">MISSION 04 / RUNNER</p><h1>地方探索跑酷<br><span>Local Run</span></h1><p>控制晉江小精靈前進，跳過障礙並蒐集能量葉。速度會逐步提升，支援單跳與空中第二段跳躍。</p></div><div class="mascot-card"><img src="assets/影印/c95e5a58-d7c5-4e8d-abcc-503f90609f51.jpg" alt="地方跑酷任務小精靈"></div></section>
+<section class="game-shell"><div class="hud"><div class="hud-group"><div class="metric"><small>DISTANCE</small><b id="distance">0m</b></div><div class="metric"><small>ENERGY</small><b class="good" id="energy">0</b></div><div class="metric"><small>LIFE</small><b id="life">♥♥♥</b></div></div><div class="metric"><small>GOAL</small><b>500m</b></div></div>
+<div class="game-stage run-stage" id="stage">
+<div class="sky"><i></i><i></i><i></i></div><div class="mountains m1"></div><div class="mountains m2"></div><div class="ground"></div>
+<div class="runner" id="runner"><div class="runner-head">🌱</div><div class="runner-body"></div></div>
+<div class="speed-lines" id="speedLines"></div>
+<div class="overlay" id="intro"><div class="overlay-icon">➜</div><h2>跑到 500 公尺</h2><p>點畫面、按空白鍵或 ↑ 跳躍；在空中可以再跳一次。蒐集能量葉可加分，撞到障礙會失去生命。</p><button class="primary-btn" id="start">開始跑酷</button></div>
+<div class="overlay hidden" id="result"><div class="overlay-icon" id="resultIcon">✦</div><h2 id="resultTitle"></h2><p id="resultText"></p><div class="result-actions"><button class="secondary-btn" id="retry">再跑一次</button><a class="primary-btn" href="missions.html">回任務地圖</a></div></div>
+</div></section></main><div class="toast" id="toast"></div><script src="game4.js"></script></body></html>
