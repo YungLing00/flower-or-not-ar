@@ -6,6 +6,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="ar.css">
+<script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
 </head>
 <body>
 <main class="ar-app">
@@ -14,7 +15,11 @@
 <header class="ar-topbar"><a href="index.html" class="back">← 返回作品網站</a><div class="top-progress"><span>任務 <b id="missionCount">0</b>/4</span><span>植物 <b id="plantBadgeCount">0</b>/10</span></div></header>
 <section class="hud"><div class="scan-status"><span class="dot"></span><div><b>AR GARDEN</b><small id="statusText">點擊畫面放置植物</small></div></div><button class="info-btn" id="infoBtn" aria-label="植物資訊">i</button></section>
 <div class="reticle"><i></i><i></i><i></i><i></i></div>
-<div class="placed-plant" id="placedPlant"><div class="flower-head"><span></span><span></span><span></span><span></span><span></span><b></b></div><div class="ar-stem"></div><div class="ar-leaf leaf-left"></div><div class="ar-leaf leaf-right"></div><div class="pot"></div></div>
+<div class="placed-plant" id="placedPlant">
+  <img id="plantImage" alt="AR 植物">
+  <model-viewer id="plantModel" camera-controls auto-rotate shadow-intensity="1" interaction-prompt="none"></model-viewer>
+  <span class="model-status" id="modelStatus"></span>
+</div>
 <div class="hint" id="hint">輕點畫面，將植物放進環境中</div>
 <aside class="plant-panel" id="plantPanel"><button class="close-panel" id="closePanel">×</button><p class="eyebrow">DIGITAL HERBARIUM</p><h2 id="plantName">互葉白千層</h2><p id="plantLatin">Melaleuca alternifolia</p><p id="plantDesc">此植物為《花非花？》專題收錄植物之一。網站 AR 版提供放置、拖曳、旋轉與縮放互動。</p><div class="plant-meta"><span>AR VIEW</span><span>360° MOVE</span><span>PROJECT PLANT</span></div><button class="collect-btn" id="collectBtn">蒐集這株植物徽章</button></aside>
 <aside class="plant-drawer" id="plantDrawer"><div class="drawer-head"><div><small>10 PROJECT PLANTS</small><b>選擇植物</b></div><button id="drawerClose">×</button></div><div class="plant-list" id="plantList"></div></aside>
