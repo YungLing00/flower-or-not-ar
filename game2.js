@@ -1,0 +1,11 @@
+const $=(s,c=document)=>c.querySelector(s),$$=(s,c=document)=>[...c.querySelectorAll(s)];let round=1,sequence=[],input=[],locked=true,streak=0;
+const nodes=$$('.node'),phase=$('#phase');
+function sleep(ms){return new Promise(r=>setTimeout(r,ms))}
+function update(){roundEl.textContent=round+'/5';streakEl.textContent=streak;chargeEl.textContent=Math.round((round-1)/5*100)+'%'}const roundEl=$('#round'),streakEl=$('#streak'),chargeEl=$('#charge');
+function flashNode(i,wrong=false){const n=nodes[i];n.classList.add(wrong?'wrong':'active');setTimeout(()=>n.classList.remove('active','wrong'),300)}
+async function showSequence(){locked=true;phase.textContent='WATCH';await sleep(500);for(const i of sequence){flashNode(i);await sleep(Math.max(360,650-round*45))}phase.textContent='YOUR TURN';locked=false;input=[]}
+async function newRound(){sequence=[];const len=round+2;for(let i=0;i<len;i++)sequence.push(Math.floor(Math.random()*6));update();await showSequence()}
+async function choose(i){if(locked)return;const idx=input.length;if(i!==sequence[idx]){flashNode(i,true);streak=0;streakEl.textContent=0;locked=true;phase.textContent='DESYNC';await sleep(650);return showSequence()}flashNode(i);input.push(i);streak++;streakEl.textContent=streak;if(input.length===sequence.length){locked=true;phase.textContent='SYNCED';round++;chargeEl.textContent=Math.min(100,Math.round((round-1)/5*100))+'%';if(round>5)return finish();await sleep(700);newRound()}}
+nodes.forEach((n,i)=>n.onclick=()=>choose(i));
+function finish(){locked=true;$('#core').classList.add('charged');phase.textContent='CORE ONLINE';let p=JSON.parse(localStorage.getItem('flower-web-missions')||'[false,false,false,false]');p[1]=true;localStorage.setItem('flower-web-missions',JSON.stringify(p));$('#resultTitle').textContent='核心同步完成';$('#resultText').textContent='你完成 5 輪能量記憶序列，核心已啟動並解鎖 MISSION 02 徽章。';setTimeout(()=>$('#result').classList.remove('hidden'),800)}
+function start(){round=1;streak=0;$('#core').classList.remove('charged');$('#intro').classList.add('hidden');$('#result').classList.add('hidden');newRound()}$('#start').onclick=start;$('#retry').onclick=start;
