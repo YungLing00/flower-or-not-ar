@@ -1,33 +1,42 @@
 # 花非花？｜Flower or Not?
 
-以「晉江寮數碼花園」為場域的 AR 互動專題作品網站。
+《花非花？》是以臺中沙鹿晉江寮為場域的互動設計專題網站，核心為 AR、地方文化、生態教育、遊戲化與 AI NPC。
+
+## 網站入口
+
+GitHub Pages:
+https://yungling00.github.io/flower-or-not-ar/
+
+## 頁面
+
+- `index.html`：完整 Case Study / 作品集首頁
+- `ar.html`：相機式 AR 植物互動
+- `marker-ar.html`：AR.js Hiro Marker 示範
+- `npc.html`：晉江小精靈互動對話
+- `missions.html`：網頁版互動任務與徽章
 
 ## 專題核心
 
-《花非花？》聚焦於臺中沙鹿晉江寮的地方文化、生態教育與文化記憶保存，透過 AR、遊戲化互動、3D 植物、AI NPC 與徽章系統，讓使用者在實地探索中理解地方故事。
+原專題聚焦於晉江寮地方文化、生態與文化記憶保存，透過 AR 植物互動遊戲、任務、徽章、3D 內容與 AI NPC，讓使用者在探索過程中理解地方故事。
 
-## 網站內容
+## User Testing
 
-- 專題背景與地方創生概念
-- 互動流程：掃描 → 闖關 → 學習 → 徽章
-- AR、植物展示、AI NPC、遊戲任務等功能
-- 原始藍綠視覺系統（#44C767 → #00AEEF）
-- 技術與開發工具
-- 郭蘊苓個人負責項目
-- 使用者測試成果與後續改善
-- SDG 4、SDG 11 與地方文化永續
+專題簡報記錄清水測試共 56 位不同年齡層測試者，超過 88% 認為遊戲設計新穎且有趣，並能激發對地方的好奇心。
 
-## 技術
+原報告亦指出部分掃圖任務有辨識準確度問題，為後續技術改善方向。
 
-此作品網站使用純 HTML / CSS / JavaScript 建置，無需安裝套件，可直接透過 GitHub Pages 部署。
+## 個人角色｜郭蘊苓
 
-## GitHub Pages
-
-Repository Settings → Pages → Deploy from a branch → main → /(root)
-
-部署後預計網址：
-
-https://yungling00.github.io/flower-or-not-ar/
+- 進度規劃
+- 關卡與功能發想
+- 故事腳本
+- 植物模型、NPC 模型
+- UI 設計與視覺
+- 音樂與音效
+- 徽章模型
+- 簡報與報告
+- ChatGPT API
+- 影片拍攝與剪輯
 
 ## Project Team
 
