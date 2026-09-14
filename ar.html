@@ -6,7 +6,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="ar.css">
-<script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+<script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.169.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.169.0/examples/jsm/"}}</script>
 </head>
 <body>
 <main class="ar-app">
@@ -17,7 +17,7 @@
 <div class="reticle"><i></i><i></i><i></i><i></i></div>
 <div class="placed-plant" id="placedPlant">
   <img id="plantImage" alt="AR 植物">
-  <model-viewer id="plantModel" camera-controls auto-rotate shadow-intensity="1" interaction-prompt="none"></model-viewer>
+  <canvas id="plantCanvas" aria-label="3D 植物模型"></canvas>
   <span class="model-status" id="modelStatus"></span>
 </div>
 <div class="hint" id="hint">輕點畫面，將植物放進環境中</div>
@@ -27,5 +27,6 @@
 <div class="toast" id="toast"></div>
 </main>
 <section class="marker-modal" id="markerModal" aria-hidden="true"><div class="marker-card"><button class="marker-close" id="markerClose">×</button><p class="eyebrow">MARKER AR MODE</p><h2>掃描 Hiro Marker</h2><p>這個模式使用 AR.js。請用另一台裝置顯示 Hiro marker，或將 marker 印出，再用手機鏡頭對準。</p><a class="marker-link" href="marker-ar.html">啟動 Marker AR →</a><a class="marker-link secondary" href="missions.html">前往任務系統 →</a><small>Marker AR 需要 HTTPS 與相機權限；GitHub Pages 可正常使用。</small></div></section>
+<script type="module" src="ar3d.js"></script>
 <script src="ar.js"></script>
 </body></html>
