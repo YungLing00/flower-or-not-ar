@@ -79,3 +79,23 @@ hero?.addEventListener('pointerleave', () => {
   const phone = $('.phone',hero);
   if(phone) phone.style.transform = 'rotate(5deg)';
 });
+async function hydrateProjectScreens(){
+  const images = $$('.real-shot[data-b64]');
+  await Promise.all(images.map(async img => {
+    try{
+      const response = await fetch(img.dataset.b64);
+      if(!response.ok) throw new Error('asset fetch failed');
+      const b64 = (await response.text()).trim();
+      img.src = 'data:image/jpeg;base64,' + b64;
+      img.addEventListener('load', () => {
+        img.classList.add('loaded');
+        const loader = img.parentElement?.querySelector('.screen-loading');
+        if(loader) loader.remove();
+      }, {once:true});
+    }catch(err){
+      const loader = img.parentElement?.querySelector('.screen-loading');
+      if(loader) loader.textContent = 'SCREEN PREVIEW UNAVAILABLE';
+    }
+  }));
+}
+hydrateProjectScreens();
