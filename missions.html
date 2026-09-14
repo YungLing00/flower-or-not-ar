@@ -9,40 +9,58 @@
 </head>
 <body>
 <header><a href="index.html">← 返回花非花？</a><span>MISSION SYSTEM</span><div class="badge">徽章 <b id="totalBadges">0</b>/4</div></header>
+
 <main>
-<section class="mission-hero"><p class="eyebrow">WEB MISSION DEMO</p><h1>完成 4 個任務，<br><span>解鎖數位花園徽章。</span></h1><p>這是依原專題「四個任務點、闖關、徽章」概念重製的網頁互動示範，不等同原 Unity App 的完整關卡。</p></section>
-<section class="mission-map">
-<button class="node active" data-mission="0"><i>01</i><b>SCAN</b><small>掃描模擬</small></button><span></span>
-<button class="node" data-mission="1"><i>02</i><b>PUZZLE</b><small>拼圖排序</small></button><span></span>
-<button class="node" data-mission="2"><i>03</i><b>QUIZ</b><small>專題問答</small></button><span></span>
-<button class="node" data-mission="3"><i>04</i><b>PATH</b><small>探索路徑</small></button>
+<section class="mission-hero">
+<p class="eyebrow">AR TASK → MINI GAME</p>
+<h1>掃描任務圖，<br><span>直接進入小遊戲。</span></h1>
+<p>四張晉江小精靈任務圖分別對應四個互動關卡。完成關卡後會解鎖徽章，進度保存在瀏覽器。</p>
+<div class="hero-actions"><a class="primary" href="scan.html">開啟 AR 任務掃描</a><button id="clearProgress">清除進度</button></div>
 </section>
 
-<section class="mission-stage">
-<article class="mission-panel active" data-panel="0">
-<div class="panel-copy"><small>MISSION 01</small><h2>SCAN / 掃描任務點</h2><p>按住掃描按鈕，模擬原專題「掃描指定圖像 → 啟動任務」的流程。</p><button class="main-btn" id="scanBtn">按住開始掃描</button></div>
-<div class="scan-demo"><div class="scan-frame"><i></i><i></i><i></i><i></i><div class="target">✦</div><div class="beam"></div></div><div class="progress"><b id="scanProgress"></b></div><span id="scanStatus">TARGET NOT FOUND</span></div>
-</article>
-
-<article class="mission-panel" data-panel="1">
-<div class="panel-copy"><small>MISSION 02</small><h2>PUZZLE / 拼圖排序</h2><p>把「掃描、挑戰、學習、徽章」排成正確流程。點擊卡片即可依序放入答案。</p><button class="reset-btn" id="resetPuzzle">重新排列</button></div>
-<div><div class="answer-slots" id="answerSlots"><i>1</i><i>2</i><i>3</i><i>4</i></div><div class="puzzle-options" id="puzzleOptions"></div><p class="feedback" id="puzzleFeedback"></p></div>
-</article>
-
-<article class="mission-panel" data-panel="2">
-<div class="panel-copy"><small>MISSION 03</small><h2>QUIZ / 專題問答</h2><p>根據《花非花？》專題資料回答問題。</p></div>
-<div class="quiz-box"><p id="quizCount">QUESTION 1 / 3</p><h3 id="quizQuestion"></h3><div id="quizOptions"></div><p class="feedback" id="quizFeedback"></p></div>
-</article>
-
-<article class="mission-panel" data-panel="3">
-<div class="panel-copy"><small>MISSION 04</small><h2>PATH / 探索路徑</h2><p>依照 1 → 2 → 3 → 4 的順序點亮探索節點，完成最後一段任務。</p><button class="reset-btn" id="resetPath">重新開始</button></div>
-<div class="path-grid" id="pathGrid"><button data-step="3">3</button><button data-step="1">1</button><button data-step="4">4</button><button data-step="2">2</button></div>
-</article>
+<section class="task-cards">
+<button class="task-card" data-game="1"><img src="assets/影印/c95e5a58-d7c5-4e8d-abcc-503f90609f51 2.jpg" alt="任務一"><span>MISSION 01</span><b>能量反射</b><small>點擊球體，維持能量不落地</small></button>
+<button class="task-card" data-game="2"><img src="assets/影印/c95e5a58-d7c5-4e8d-abcc-503f90609f51 3.jpg" alt="任務二"><span>MISSION 02</span><b>能量核心</b><small>收集光點，充滿能量球</small></button>
+<button class="task-card" data-game="3"><img src="assets/影印/c95e5a58-d7c5-4e8d-abcc-503f90609f51 4.jpg" alt="任務三"><span>MISSION 03</span><b>生態拼圖</b><small>完成九宮格圖片拼圖</small></button>
+<button class="task-card" data-game="4"><img src="assets/影印/c95e5a58-d7c5-4e8d-abcc-503f90609f51.jpg" alt="任務四"><span>MISSION 04</span><b>地方探索跑酷</b><small>跳過障礙，抵達終點</small></button>
 </section>
 
-<section class="reward" id="reward"><div class="reward-icon">✦</div><p>MISSION COMPLETE</p><h2>數位花園探索完成。</h2><p>你完成了網站版四個互動任務。現在可以回到 AR Garden，繼續放置植物。</p><div><a href="ar.html">前往 AR Garden</a><a href="npc.html">找晉江小精靈</a></div></section>
+<section class="game-shell" id="gameShell">
+<div class="game-top"><div><small id="gameNo">MISSION 01</small><h2 id="gameTitle">能量反射</h2></div><button id="closeGame">×</button></div>
+
+<article class="game-panel active" data-panel="1">
+<div class="game1-area" id="game1Area">
+<div class="energy-ball" id="energyBall"></div>
+<div class="paddle" id="paddle"></div>
+<div class="game-hud"><span>連擊 <b id="bounceScore">0</b>/12</span><span>生命 <b id="bounceLife">3</b></span></div>
+</div>
+<div class="game-controls"><p>移動滑鼠／手指控制底部能量板，接住球 12 次。</p><button id="startBounce">開始遊戲</button></div>
+</article>
+
+<article class="game-panel" data-panel="2">
+<div class="orb-stage" id="orbStage"><div class="core" id="core"><i></i></div><div class="orb-progress"><b id="orbFill"></b></div><span id="orbText">0 / 15</span></div>
+<div class="game-controls"><p>點擊出現的能量光點，收集 15 個後啟動核心。</p><button id="startOrb">開始蒐集</button></div>
+</article>
+
+<article class="game-panel" data-panel="3">
+<div class="puzzle-wrap"><div class="puzzle-grid" id="puzzleGrid"></div><div class="puzzle-preview"><img src="assets/影印/c95e5a58-d7c5-4e8d-abcc-503f90609f51 4.jpg" alt="拼圖原圖"><small>REFERENCE</small></div></div>
+<div class="game-controls"><p>點兩塊拼圖即可交換位置，還原右側圖片。</p><button id="shufflePuzzle">重新打亂</button></div>
+</article>
+
+<article class="game-panel" data-panel="4">
+<div class="runner-stage" id="runnerStage">
+<div class="runner-bg"><i></i><i></i><i></i></div>
+<div class="runner" id="runner">🌱</div>
+<div class="obstacle" id="obstacle"></div>
+<div class="runner-hud"><span>距離 <b id="runScore">0</b>/100</span></div>
+</div>
+<div class="game-controls"><p>點畫面或按空白鍵跳躍，避開障礙直到距離 100。</p><button id="startRunner">開始跑酷</button></div>
+</article>
+
+<div class="complete" id="complete"><div>✦</div><small>MISSION COMPLETE</small><h3 id="completeTitle">任務完成</h3><p>你獲得一枚數位花園徽章。</p><button id="backToMap">回任務地圖</button></div>
+</section>
 </main>
-<footer><span>Flower or Not? / Mission Web Demo</span><button id="clearProgress">清除任務進度</button></footer>
+
 <div class="toast" id="toast"></div>
 <script src="missions.js"></script>
 </body></html>
