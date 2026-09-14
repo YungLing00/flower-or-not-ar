@@ -1,0 +1,12 @@
+<!doctype html><html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#06110f"><title>核心同步｜花非花？</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet"><link rel="stylesheet" href="game-common.css"><link rel="stylesheet" href="game2.css"></head><body>
+<header class="topbar"><a href="missions.html">← 任務地圖</a><span>MISSION 02 / CORE SYNC</span><a href="game3.html">下一關 →</a></header>
+<main class="game-page">
+<section class="game-hero"><div><p class="eyebrow">MISSION 02 / MEMORY</p><h1>核心同步<br><span>Core Sync</span></h1><p>觀察能量節點亮起的順序，並完整重現。每一輪序列都會變長，完成 5 輪即可啟動核心。</p></div><div class="mascot-card"><img src="assets/影印/c95e5a58-d7c5-4e8d-abcc-503f90609f51 3.jpg" alt="核心同步任務小精靈"></div></section>
+<section class="game-shell"><div class="hud"><div class="hud-group"><div class="metric"><small>ROUND</small><b id="round">1/5</b></div><div class="metric"><small>STREAK</small><b class="good" id="streak">0</b></div></div><div class="metric"><small>CORE</small><b id="charge">0%</b></div></div>
+<div class="game-stage sync-stage" id="stage">
+<div class="core-wrap"><div class="core-ring r1"></div><div class="core-ring r2"></div><div class="core" id="core"><i></i></div></div>
+<div class="node n0" data-node="0"><b>1</b></div><div class="node n1" data-node="1"><b>2</b></div><div class="node n2" data-node="2"><b>3</b></div><div class="node n3" data-node="3"><b>4</b></div><div class="node n4" data-node="4"><b>5</b></div><div class="node n5" data-node="5"><b>6</b></div>
+<div class="phase" id="phase">READY</div>
+<div class="overlay" id="intro"><div class="overlay-icon">◎</div><h2>記住能量序列</h2><p>先看節點依序發光，再照相同順序點回去。第 5 輪會有 7 個節點。</p><button class="primary-btn" id="start">開始同步</button></div>
+<div class="overlay hidden" id="result"><div class="overlay-icon">✦</div><h2 id="resultTitle"></h2><p id="resultText"></p><div class="result-actions"><button class="secondary-btn" id="retry">再玩一次</button><a class="primary-btn" href="missions.html">回任務地圖</a></div></div>
+</div></section></main><div class="toast" id="toast"></div><script src="game2.js"></script></body></html>
