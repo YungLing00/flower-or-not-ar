@@ -1,0 +1,21 @@
+const $=(s,c=document)=>c.querySelector(s),$$=(s,c=document)=>[...c.querySelectorAll(s)];
+let completed=JSON.parse(localStorage.getItem('flower-web-missions')||'[false,false,false,false]');const toast=$('#toast');
+function save(){localStorage.setItem('flower-web-missions',JSON.stringify(completed));renderStatus()}
+function showToast(t){toast.textContent=t;toast.classList.add('show');clearTimeout(showToast.t);showToast.t=setTimeout(()=>toast.classList.remove('show'),1700)}
+function renderStatus(){$('#totalBadges').textContent=completed.filter(Boolean).length;$$('.node').forEach((n,i)=>n.classList.toggle('done',completed[i]));$('#reward').classList.toggle('show',completed.every(Boolean))}
+renderStatus();
+$$('.node').forEach(n=>n.addEventListener('click',()=>{const i=Number(n.dataset.mission);$$('.node').forEach(x=>x.classList.remove('active'));n.classList.add('active');$$('.mission-panel').forEach(x=>x.classList.toggle('active',Number(x.dataset.panel)===i));document.querySelector('.mission-stage').scrollIntoView({behavior:'smooth',block:'center'})}));
+
+let scanTimer,scan=0;const scanBtn=$('#scanBtn'),scanFrame=$('.scan-frame');
+function stopScan(){clearInterval(scanTimer);scanFrame.classList.remove('scanning')}
+scanBtn.addEventListener('pointerdown',()=>{if(completed[0])return showToast('這個任務已完成');scan=0;scanFrame.classList.add('scanning');$('#scanStatus').textContent='SCANNING...';scanTimer=setInterval(()=>{scan+=4;$('#scanProgress').style.width=scan+'%';if(scan>=100){stopScan();$('#scanStatus').textContent='TARGET FOUND ✓';completed[0]=true;save();showToast('獲得 SCAN 徽章 ✦')}},45)});
+['pointerup','pointerleave','pointercancel'].forEach(ev=>scanBtn.addEventListener(ev,()=>{if(scan<100){stopScan();$('#scanStatus').textContent='HOLD TO SCAN';scan=0;$('#scanProgress').style.width='0'}}));
+
+const correct=['掃描','挑戰','學習','徽章'];let chosen=[];
+function renderPuzzle(){chosen=[];$('#puzzleFeedback').textContent='';const opts=[...correct].sort(()=>Math.random()-.5);$('#puzzleOptions').innerHTML='';$('#answerSlots').innerHTML='<i>1</i><i>2</i><i>3</i><i>4</i>';opts.forEach(v=>{const b=document.createElement('button');b.textContent=v;b.onclick=()=>{if(chosen.length>=4)return;chosen.push(v);b.classList.add('used');const slot=$$('#answerSlots i')[chosen.length-1];slot.textContent=v;slot.classList.add('filled');if(chosen.length===4){if(chosen.every((v,i)=>v===correct[i])){completed[1]=true;save();$('#puzzleFeedback').textContent='順序正確！獲得 PUZZLE 徽章 ✦'}else $('#puzzleFeedback').textContent='順序不對，再試一次。'}};$('#puzzleOptions').appendChild(b)})}renderPuzzle();$('#resetPuzzle').onclick=renderPuzzle;
+
+const quiz=[{q:'《花非花？》主要使用哪種技術連結真實場域與數位內容？',a:['AR 擴增實境','純文字網站','電子郵件'],c:0},{q:'專題簡報記錄的清水測試共有多少位不同年齡層測試者？',a:['30 位','56 位','100 位'],c:1},{q:'原報告指出哪一項是後續需要改善的技術問題？',a:['圖像辨識準確度','沒有任何互動','缺少手機版本'],c:0}];let qi=0,qscore=0;
+function renderQuiz(){const x=quiz[qi];$('#quizCount').textContent='QUESTION '+(qi+1)+' / '+quiz.length;$('#quizQuestion').textContent=x.q;$('#quizOptions').innerHTML='';$('#quizFeedback').textContent='';x.a.forEach((v,i)=>{const b=document.createElement('button');b.textContent=v;b.onclick=()=>{if(i===x.c){qscore++;$('#quizFeedback').textContent='答對了。';setTimeout(()=>{qi++;if(qi>=quiz.length){if(qscore===quiz.length){completed[2]=true;save();$('#quizQuestion').textContent='全部答對！';$('#quizOptions').innerHTML='';$('#quizFeedback').textContent='獲得 QUIZ 徽章 ✦'}else{qi=0;qscore=0;renderQuiz();showToast('需要三題全對，再試一次')}}else renderQuiz()},450)}else{$('#quizFeedback').textContent='不是這個答案，再想一下。'} };$('#quizOptions').appendChild(b)})}renderQuiz();
+
+let expected=1;$$('#pathGrid button').forEach(b=>b.addEventListener('click',()=>{const v=Number(b.dataset.step);if(v===expected){b.classList.add('correct');expected++;if(expected===5){completed[3]=true;save();showToast('獲得 PATH 徽章 ✦')}}else{b.classList.add('wrong');setTimeout(()=>b.classList.remove('wrong'),260);showToast('請從 '+expected+' 開始')}}));$('#resetPath').onclick=()=>{expected=1;$$('#pathGrid button').forEach(b=>b.className='')};
+$('#clearProgress').onclick=()=>{completed=[false,false,false,false];localStorage.removeItem('flower-web-missions');renderStatus();scan=0;$('#scanProgress').style.width='0';renderPuzzle();qi=0;qscore=0;renderQuiz();expected=1;$$('#pathGrid button').forEach(b=>b.className='');showToast('任務進度已清除')};
